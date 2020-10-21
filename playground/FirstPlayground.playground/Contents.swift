@@ -54,3 +54,20 @@ if isTwoNameSame {
 } else {
     print("---> different name")
 }
+
+let isHong = name2 == "Jin"
+let isMale = true
+
+let HongAndMale = isHong && isMale
+let HongOrMale = isHong || isMale
+
+//let greetingMessage: String
+//if isHong {
+//    greetingMessage = "Hello SeungHyun"
+//} else {
+//    greetingMessage = "Hello Somebody"
+//}
+//print("Msg: \(greetingMessage)")
+
+let greetingMessage: String = isHong ? "Hello SeungHyun" : "Hello Somebody"
+print("Msg: \(greetingMessage)")
