@@ -50,3 +50,26 @@ printParsedInt(from: "100")
 // Nil coalescing
 carName = nil
 let myCarName: String = carName ?? "모델 S"
+
+
+let favoriteFood: String? = "pizza"
+// return, break, continue, throw등 제어문 전환명령어를 쓸 수 없는
+// 상황에서는 guard 사용 불가
+//guard let food = favoriteFood else{
+//    print("좋아하는 음식 없음.")
+//}
+if let foodName = favoriteFood {
+    print(foodName)
+} else {
+    print("좋아하는 음식 없음")
+}
+
+func printNickname(name: String?) {
+    guard let nickname = name else{
+        print("nickname 만들어 보자")
+        return
+    }
+    print(nickname)
+}
+
+printNickname(name: nil)
