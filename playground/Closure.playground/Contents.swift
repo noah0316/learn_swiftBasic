@@ -22,3 +22,27 @@ operateTwoNum(a: 4, b: 2, operation: addClosure)
 operateTwoNum(a: 4, b: 2) { a, b in
     return a / b
 }
+
+
+let voidClosure: () -> Void = {
+    print("iOS 개발자 짱, 클로져 사랑해")
+}
+
+voidClosure()
+
+// Capturing Values
+
+var count = 0
+
+let incrementer = {
+    count  += 1
+}
+
+incrementer()
+incrementer()
+incrementer()
+incrementer()
+incrementer()
+
+print(count)
+
