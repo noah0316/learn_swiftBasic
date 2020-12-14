@@ -4,7 +4,12 @@ import UIKit
 // 2. 강의 Array와 강사이름을 받아서, 해당 강사의 강의 이름을 출력하는 함수 만들기
 // 3. 강의 3개 만들고 강사이름으로 강의 찾기
 
-struct Lecture {
+// CustomStringCovertible 
+struct Lecture: CustomStringConvertible {
+    var description: String {
+        return "Title: \(title), Instructor: \(instructor)"
+    }
+    
     let title: String
     let instructor: String
     let numOfStudent: Int
@@ -36,3 +41,4 @@ let Lecture3 = Lecture(title: "Flutter", instructor: "Jim", numOfStudent: 300)
 let Lectures = [Lecture1, Lecture2, Lecture3]
 
 printLectureTitle(Lectures: Lectures, from: "Noah")
+print(Lecture1)
