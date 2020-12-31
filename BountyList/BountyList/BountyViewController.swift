@@ -41,7 +41,6 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         let bountyInfo = viewModel.bountyInfo(at: indexPath.item)
         cell.update(info: bountyInfo)
 
-        cell.update(info: bountyInfo)
         return cell
     }
 
