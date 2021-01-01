@@ -121,4 +121,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# AppleMusicStApp
+AppleMusicStApp/AppleMusicStApp/Resources
 # End of https://www.toptal.com/developers/gitignore/api/swift
