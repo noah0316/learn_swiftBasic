@@ -4,6 +4,7 @@
 //
 //  Created by joonwon lee on 2020/01/12.
 //  Copyright © 2020 com.joonwon. All rights reserved.
+//  Modified by Noah on 2021/01/05.
 //
 
 import UIKit
@@ -21,7 +22,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalDurationLabel: UILabel!
     
-    //TODO: SimplePlayer 만들고 프로퍼티 추가
+    // SimplePlayer 만들고 프로퍼티 추가
+    let simplePlayer = SimplePlayer.shared
     
     var timeObserver: Any?
     var isSeeking: Bool = false
