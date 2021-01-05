@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F950D4C25A4C8BE00C31362 /* NAPPA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4F950D4B25A4C8BE00C31362 /* NAPPA.mp3 */; };
+		4F950D5325A4CCDE00C31362 /* trump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4F950D4F25A4CCDE00C31362 /* trump.mp3 */; };
+		4F950D5625A4CCDE00C31362 /* nightmare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4F950D5225A4CCDE00C31362 /* nightmare.mp3 */; };
+		4F950D6825A4CE6000C31362 /* Minsu is Confused.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4F950D6625A4CE6000C31362 /* Minsu is Confused.mp3 */; };
+		4F950D6925A4CE6000C31362 /* CIRCLE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4F950D6725A4CE6000C31362 /* CIRCLE.mp3 */; };
 		943818C2241E31200093FC36 /* TrackCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943818C1241E31200093FC36 /* TrackCollectionHeaderView.swift */; };
 		943818C7241E41940093FC36 /* DefaultStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943818C6241E41940093FC36 /* DefaultStyle.swift */; };
 		943818CA241E42010093FC36 /* SimplePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943818C9241E42010093FC36 /* SimplePlayer.swift */; };
@@ -47,6 +52,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F950D4B25A4C8BE00C31362 /* NAPPA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NAPPA.mp3; sourceTree = "<group>"; };
+		4F950D4F25A4CCDE00C31362 /* trump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trump.mp3; sourceTree = "<group>"; };
+		4F950D5225A4CCDE00C31362 /* nightmare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nightmare.mp3; sourceTree = "<group>"; };
+		4F950D6625A4CE6000C31362 /* Minsu is Confused.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Minsu is Confused.mp3"; sourceTree = "<group>"; };
+		4F950D6725A4CE6000C31362 /* CIRCLE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CIRCLE.mp3; sourceTree = "<group>"; };
 		943818C1241E31200093FC36 /* TrackCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionHeaderView.swift; sourceTree = "<group>"; };
 		943818C6241E41940093FC36 /* DefaultStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStyle.swift; sourceTree = "<group>"; };
 		943818C9241E42010093FC36 /* SimplePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayer.swift; sourceTree = "<group>"; };
@@ -179,10 +189,15 @@
 				948C954C23CA1C7E001642F9 /* when the leaves start falling.mp3 */,
 				948C954D23CA1C7E001642F9 /* distant moon (spotify apple etc).mp3 */,
 				948C954E23CA1C7E001642F9 /* aruarian dance [lounge version].mp3 */,
+				4F950D5225A4CCDE00C31362 /* nightmare.mp3 */,
+				4F950D4F25A4CCDE00C31362 /* trump.mp3 */,
 				948C954F23CA1C7E001642F9 /* Bike Rides On The Block.mp3 */,
+				4F950D4B25A4C8BE00C31362 /* NAPPA.mp3 */,
 				948C955023CA1C7E001642F9 /* Letting Go.mp3 */,
 				948C955123CA1C7E001642F9 /* valentin.mp3 */,
 				948C955223CA1C7E001642F9 /* elijah who - hello.mp3 */,
+				4F950D6725A4CE6000C31362 /* CIRCLE.mp3 */,
+				4F950D6625A4CE6000C31362 /* Minsu is Confused.mp3 */,
 				948C955323CA1C7E001642F9 /* Moonlight!.mp3 */,
 				948C955423CA1C7E001642F9 /* Getsomerest.mp3 */,
 				948C955523CA1C7E001642F9 /* night calls.mp3 */,
@@ -260,7 +275,9 @@
 			files = (
 				948C956F23CA1C7E001642F9 /* Chamomile Tea.mp3 in Resources */,
 				948C956523CA1C7E001642F9 /* Bike Rides On The Block.mp3 in Resources */,
+				4F950D6825A4CE6000C31362 /* Minsu is Confused.mp3 in Resources */,
 				948C957023CA1C7E001642F9 /* [ asleep ].mp3 in Resources */,
+				4F950D5625A4CCDE00C31362 /* nightmare.mp3 in Resources */,
 				948C956623CA1C7E001642F9 /* Letting Go.mp3 in Resources */,
 				948C956C23CA1C7E001642F9 /* Ocean ride __ 海の乗り.mp3 in Resources */,
 				948C957723CA2AEF001642F9 /* Player.storyboard in Resources */,
@@ -269,9 +286,12 @@
 				948C956823CA1C7E001642F9 /* elijah who - hello.mp3 in Resources */,
 				948C956323CA1C7E001642F9 /* distant moon (spotify apple etc).mp3 in Resources */,
 				948C957323CA1C7E001642F9 /* i fell in love with you one night in september..mp3 in Resources */,
+				4F950D4C25A4C8BE00C31362 /* NAPPA.mp3 in Resources */,
 				948C956023CA1C7E001642F9 /* memories (listen on spotify from 3am ep).mp3 in Resources */,
 				948C957423CA1C7E001642F9 /* tranquility.mp3 in Resources */,
 				948C956A23CA1C7E001642F9 /* Getsomerest.mp3 in Resources */,
+				4F950D5325A4CCDE00C31362 /* trump.mp3 in Resources */,
+				4F950D6925A4CE6000C31362 /* CIRCLE.mp3 in Resources */,
 				948C956E23CA1C7E001642F9 /* Glow.mp3 in Resources */,
 				948C956D23CA1C7E001642F9 /* Missing U In The Raining Day.mp3 in Resources */,
 				948C956B23CA1C7E001642F9 /* night calls.mp3 in Resources */,

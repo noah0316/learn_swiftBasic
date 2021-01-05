@@ -21,7 +21,7 @@ class TrackCollecionViewCell: UICollectionViewCell {
     }
     
     func updateUI(item: Track?) {
-        // TODO: 곡정보 표시하기
+        // 곡정보 표시하기
         guard let track = item else { return }
         trackThumbnail.image = track.artwork
         trackTitle.text = track.title
