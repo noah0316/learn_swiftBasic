@@ -9,8 +9,7 @@
 
 import UIKit
 
-
-// TODO: Codable과 Equatable 추가
+// Codable과 Equatable 추가
 struct Todo: Codable, Equatable {
     let id: Int
     var isDone: Bool

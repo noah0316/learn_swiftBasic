@@ -18,10 +18,8 @@ class TodoListViewController: UIViewController {
     @IBOutlet weak var isTodayButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
 
-
     // TodoViewModel
     let todoListViewModel = TodoViewModel()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +28,8 @@ class TodoListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-
-
         // 데이터 불러오기
         todoListViewModel.loadTasks()
-        
-//        let todo = TodoManager.shared.createTodo(detail: "👍 🚀 Corona 난리", isToday: true)
-//        Storage.saveTodo(todo, fileName: "test.json")
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-//        let todo = Storage.restoreTodo("test.json")
-//        print("---> restore from disk: \(todo)")
     }
 
     @IBAction func isTodayButtonTapped(_ sender: Any) {
@@ -53,9 +38,14 @@ class TodoListViewController: UIViewController {
     }
 
     @IBAction func addTaskButtonTapped(_ sender: Any) {
-        // TODO: Todo 태스크 추가
         // add task to view model
         // and tableview reload or update
+        guard let detail = inputTextField.text, detail.isEmpty == false else { return }
+        let todo = TodoManager.shared.createTodo(detail: detail, isToday: isTodayButton.isSelected)
+        todoListViewModel.addTodo(todo)
+        collectionView.reloadData()
+        inputTextField.text = ""
+        isTodayButton.isSelected = false
     }
 
     // BG 탭했을때, 키보드 내려오게 하기
@@ -109,8 +99,18 @@ extension TodoListViewController: UICollectionViewDataSource {
         }
         cell.updateUI(todo: todo)
 
-        // TODO: doneButtonHandler 작성
-        // TODO: deleteButtonHandler 작성
+        // doneButtonHandler
+        cell.doneButtonTapHandler = { isDone in
+            todo.isDone = isDone
+            self.todoListViewModel.updateTodo(todo)
+            self.collectionView.reloadData()
+        }
+        
+        // deleteButtonHandler
+        cell.deleteButtonTapHandler = {
+            self.todoListViewModel.deleteTodo(todo)
+            self.collectionView.reloadData()
+        }
         return cell
     }
 
