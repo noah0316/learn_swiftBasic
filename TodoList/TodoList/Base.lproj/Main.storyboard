@@ -125,25 +125,84 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="T7D-hv-yew"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrT-uq-djC">
+                                <rect key="frame" x="0.0" y="753" width="414" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I want to..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cba-yi-ad3">
+                                        <rect key="frame" x="15" y="13" width="293" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9K-ii-q9p">
+                                        <rect key="frame" x="318" y="12.5" width="45" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="XMb-RA-Zpc"/>
+                                            <constraint firstAttribute="width" constant="45" id="uvg-n6-Pif"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="today">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="isTodayButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOu-D6-5kr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxE-jG-cuV">
+                                        <rect key="frame" x="373" y="17.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="HXl-Ip-eqe"/>
+                                            <constraint firstAttribute="width" constant="25" id="tqH-gw-j7Y"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addTaskButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="94k-dv-HOW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstItem="M9K-ii-q9p" firstAttribute="leading" secondItem="cba-yi-ad3" secondAttribute="trailing" constant="10" id="5p6-Gi-g1Q"/>
+                                    <constraint firstAttribute="height" constant="60" id="Cq6-2E-Tav"/>
+                                    <constraint firstItem="cba-yi-ad3" firstAttribute="centerY" secondItem="BrT-uq-djC" secondAttribute="centerY" id="Jeh-fr-pDF"/>
+                                    <constraint firstItem="cxE-jG-cuV" firstAttribute="leading" secondItem="M9K-ii-q9p" secondAttribute="trailing" constant="10" id="MMX-hC-xMj"/>
+                                    <constraint firstItem="M9K-ii-q9p" firstAttribute="centerY" secondItem="cxE-jG-cuV" secondAttribute="centerY" id="RR6-8z-9g0"/>
+                                    <constraint firstAttribute="trailing" secondItem="cxE-jG-cuV" secondAttribute="trailing" constant="16" id="WiU-Qv-XTg"/>
+                                    <constraint firstItem="cxE-jG-cuV" firstAttribute="centerY" secondItem="BrT-uq-djC" secondAttribute="centerY" id="a2e-9O-Rlm"/>
+                                    <constraint firstItem="cba-yi-ad3" firstAttribute="leading" secondItem="BrT-uq-djC" secondAttribute="leading" constant="15" id="xmE-Cj-A5F"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Dac-Tr-eM7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3ru-NF-H7J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BrT-uq-djC" secondAttribute="bottom" id="Dyx-9n-6rj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dac-Tr-eM7" secondAttribute="trailing" id="Jc1-hm-UUY"/>
+                            <constraint firstItem="BrT-uq-djC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zsl-bB-lXV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dac-Tr-eM7" secondAttribute="bottom" id="fRW-VT-pQx"/>
                             <constraint firstItem="Dac-Tr-eM7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="obK-Os-arc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BrT-uq-djC" secondAttribute="trailing" id="wGu-t4-69f"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tasks" image="checkmark.circle.fill" catalog="system" id="zan-H5-GGu"/>
                     <connections>
+                        <outlet property="addButton" destination="cxE-jG-cuV" id="Lci-Mv-Okx"/>
                         <outlet property="collectionView" destination="Dac-Tr-eM7" id="MeX-33-IFU"/>
+                        <outlet property="inputTextField" destination="cba-yi-ad3" id="llS-bj-QXh"/>
+                        <outlet property="inputViewBottom" destination="Dyx-9n-6rj" id="EE3-hI-xS1"/>
+                        <outlet property="isTodayButton" destination="M9K-ii-q9p" id="sgj-4N-Sxj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-297" y="1655"/>
+            <point key="canvasLocation" x="-297.10144927536237" y="1654.6875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9lK-sN-j1G">
@@ -151,6 +210,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LZq-BB-NVU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v85-V9-75J">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
@@ -244,7 +304,14 @@
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
