@@ -123,4 +123,7 @@ iOSInjectionProject/
 
 # AppleMusicStApp
 AppleMusicStApp/AppleMusicStApp/Resources
+
+# MyNetflix
+MyNetflix/MyNetflix/Assets.xcassets
 # End of https://www.toptal.com/developers/gitignore/api/swift
