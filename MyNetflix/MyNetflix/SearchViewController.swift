@@ -14,10 +14,53 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultCollectionView: UICollectionView!
 
+    var movies: [Movie] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+}
+
+extension SearchViewController: UICollectionViewDataSource {
+
+    // 몇개 넘어오니?
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+
+    // 어떻게 표현할거니?
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as? ResultCell else {
+            return UICollectionViewCell()
+        }
+
+        cell.backgroundColor = .red
+        return cell
+    }
+
+
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let margin: CGFloat = 8
+        let itemSpacing: CGFloat = 10
+        let width = (collectionView.bounds.width - margin * 2 - itemSpacing * 2) / 3
+        let height = width * 10 / 7
+        return CGSize(width: width, height: height)
+    }
+
+}
+
+class ResultCell: UICollectionViewCell {
+    @IBOutlet weak var movieThumbnail: UIImageView!
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -33,13 +76,16 @@ extension SearchViewController: UISearchBarDelegate {
             searchTerm.isEmpty == false else { return }
         // TODO: 네트워킹을 통한 검색
         // - 목표: search term을 가지고 네트워킹을 통해서 영화검색
-        // - 검색 API가 필요
-        // - 결과를 받아올 모델 Movie, Response
+        // - [x] 검색 API가 필요
+        // - [x] 결과를 받아올 모델 Movie, Response
         // - 결과를 받아와서, CollectionView로 표현
 
         SearchAPI.search(searchTerm) { movies in
             // collectionView로 표현하기
-            print(movies.count, movies.first?.title)
+            DispatchQueue.main.async {
+                self.movies = movies
+                self.resultCollectionView.reloadData()
+            }
         }
 
         print("---> 검색어: \(searchTerm)")
