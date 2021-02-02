@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchViewController: UIViewController {
 
@@ -36,7 +37,13 @@ extension SearchViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        cell.backgroundColor = .red
+        let movie = movies[indexPath.item]
+        let url = URL(string: movie.thumbnailPath)!
+        
+        // imagepath(string) -> image
+        // 외부 라이브러리 이용 with Swift Package Manager
+        cell.movieThumbnail.kf.setImage(with: url)
+        
         return cell
     }
 
