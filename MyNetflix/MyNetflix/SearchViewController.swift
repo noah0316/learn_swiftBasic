@@ -39,11 +39,11 @@ extension SearchViewController: UICollectionViewDataSource {
 
         let movie = movies[indexPath.item]
         let url = URL(string: movie.thumbnailPath)!
-        
+
         // imagepath(string) -> image
         // 외부 라이브러리 이용 with Swift Package Manager
         cell.movieThumbnail.kf.setImage(with: url)
-        
+
         return cell
     }
 
@@ -51,7 +51,20 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 extension SearchViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // movie
+        // player vc
+        // player vc + movie
+        // presenting player vc
+        
+        let movie = movies[indexPath.item]
+        
+        let sb = UIStoryboard(name: "Player", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
+        
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {

@@ -4,12 +4,17 @@
 //
 //  Created by joonwon lee on 2020/04/01.
 //  Copyright © 2020 com.joonwon. All rights reserved.
+//  Modified by Noah on 2021/02/03.
 //
 
 import UIKit
 
 class PlayerViewController: UIViewController {
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeRight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
