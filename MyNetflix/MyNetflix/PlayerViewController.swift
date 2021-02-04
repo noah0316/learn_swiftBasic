@@ -26,7 +26,7 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         playerView.player = player
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         play()
@@ -54,7 +54,7 @@ class PlayerViewController: UIViewController {
         pause()
         player.replaceCurrentItem(with: nil)
     }
-    
+
     @IBAction func closeButtonTapped(_ sender: Any) {
         reset()
         dismiss(animated: false, completion: nil)

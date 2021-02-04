@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdn-31-UPo">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_header" translatesAutoresizingMaskIntoConstraints="NO" id="5ha-Tm-cUk">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_header" translatesAutoresizingMaskIntoConstraints="NO" id="5ha-Tm-cUk">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5ha-Tm-cUk" secondAttribute="height" multiplier="40:45" id="3gu-I8-6dF"/>
@@ -44,7 +44,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9nh-qs-9PR"/>
+                                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w6b-U9-Yid"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFB-cf-lPy">
@@ -514,7 +514,7 @@
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="img_header" width="400" height="450"/>
+        <image name="img_header" width="658" height="879"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

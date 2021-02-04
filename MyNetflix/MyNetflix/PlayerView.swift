@@ -4,7 +4,9 @@
 //
 //  Created by joonwon lee on 2020/04/03.
 //  Copyright © 2020 com.joonwon. All rights reserved.
+//  Modified by Noah on 2021/02/05.
 //
+
 
 // https://developer.apple.com/documentation/avfoundation/avplayerlayer
 
@@ -20,11 +22,11 @@ class PlayerView: UIView {
             playerLayer.player = newValue
         }
     }
-    
+
     var playerLayer: AVPlayerLayer {
         return layer as! AVPlayerLayer
     }
-    
+
     // Override UIView property
     override static var layerClass: AnyClass {
         return AVPlayerLayer.self
