@@ -4,11 +4,12 @@
 //
 //  Created by joonwon lee on 2020/04/02.
 //  Copyright © 2020 com.joonwon. All rights reserved.
-//  Modified by Noah on 2021/01/25.
+//  Modified by Noah on 2021/02/05.
 //
 
 import UIKit
 import Kingfisher
+import AVFoundation
 
 class SearchViewController: UIViewController {
 
@@ -58,10 +59,14 @@ extension SearchViewController: UICollectionViewDelegate {
         // presenting player vc
         
         let movie = movies[indexPath.item]
+        let url = URL(string: movie.previewURL)!
+        let item = AVPlayerItem(url: url)
         
         let sb = UIStoryboard(name: "Player", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
         vc.modalPresentationStyle = .fullScreen
+        
+        vc.player.replaceCurrentItem(with: item)
         present(vc, animated: false, completion: nil)
         
     }
