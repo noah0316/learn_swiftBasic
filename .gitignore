@@ -126,4 +126,7 @@ AppleMusicStApp/AppleMusicStApp/Resources
 
 # MyNetflix
 MyNetflix/MyNetflix/Assets.xcassets
+
+# Firebase101
+Firebase101/Firebase101/GoogleService-Info.plist
 # End of https://www.toptal.com/developers/gitignore/api/swift
