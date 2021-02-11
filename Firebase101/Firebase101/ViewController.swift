@@ -14,13 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var numOfCustomers: UILabel!
     let db = Database.database().reference()
 
+    var customers: [Customer] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateLabel()
-//        saveBasicTypes()
-//        saveCustomers()
+        saveBasicTypes()
         fetchCustomers()
+        // updateBasicTypes()
+        // deleteBasicTypes()
     }
 
     func updateLabel() {
@@ -34,13 +37,32 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    @IBAction func createCustomer(_ sender: Any) {
+        saveCustomers()
+    }
+
+    @IBAction func fetchCustomer(_ sender: Any) {
+        fetchCustomers()
+    }
+
+    @IBAction func updateCustomer(_ sender: Any) {
+        guard customers.isEmpty == false else { return }
+        customers[0].name = "Min"
+
+        let dictionary = customers.map { $0.toDictionary }
+        db.updateChildValues(["customers": dictionary])
+    }
+
+    @IBAction func deleteCustomer(_ sender: Any) {
+        db.child("customers").removeValue()
+    }
 }
 
 extension ViewController {
     func saveBasicTypes() {
         // Firebase child("key").setValue(Value)
         // - string, number, dictionary, array
-
         db.child("int").setValue(3)
         db.child("double").setValue(3.5)
         db.child("str").setValue("string value - 안녕안녕")
@@ -75,6 +97,8 @@ extension ViewController {
                 let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
                 let decoder = JSONDecoder()
                 let customers: [Customer] = try decoder.decode([Customer].self, from: data)
+                self.customers = customers
+
                 DispatchQueue.main.async {
                     self.numOfCustomers.text = "# of customers: \(customers.count)"
                 }
@@ -84,9 +108,25 @@ extension ViewController {
         }
     }
 }
+
+// update, delete BasicTypes data
+extension ViewController {
+    func updateBasicTypes() {
+        db.updateChildValues(["int": 6])
+        db.updateChildValues(["double": 5.4])
+        db.updateChildValues(["str": "변경된 String"])
+    }
+
+    func deleteBasicTypes() {
+        db.child("int").removeValue()
+        db.child("double").removeValue()
+        db.child("str").removeValue()
+    }
+}
+
 struct Customer: Codable {
     let id: String
-    let name: String
+    var name: String
     let books: [Book]
 
     var toDictionary: [String: Any] {
@@ -94,9 +134,8 @@ struct Customer: Codable {
         let dict: [String: Any] = ["id": id, "name": name, "books": booksArray]
         return dict
     }
-
+    
     static var id: Int = 0
-
 }
 
 struct Book: Codable {
