@@ -246,7 +246,7 @@
         <!--공개예정-->
         <scene sceneID="ryf-ci-vYK">
             <objects>
-                <viewController id="Blf-Or-i5j" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpcomingViewController" id="Blf-Or-i5j" customClass="UpcomingViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ce7-Bh-AkS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +272,7 @@
                                                             <constraint firstAttribute="height" constant="200" id="sLc-Ab-M2p"/>
                                                         </constraints>
                                                         <connections>
-                                                            <segue destination="lSE-ad-6I1" kind="embed" id="lyW-Uq-k71"/>
+                                                            <segue destination="lSE-ad-6I1" kind="embed" identifier="award" id="lyW-Uq-k71"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifR-Wt-i3a">
@@ -281,7 +281,7 @@
                                                             <constraint firstAttribute="height" constant="200" id="DsB-2p-RQQ"/>
                                                         </constraints>
                                                         <connections>
-                                                            <segue destination="s4X-vp-kp2" kind="embed" id="9sO-Y8-41Y"/>
+                                                            <segue destination="s4X-vp-kp2" kind="embed" identifier="hot" id="9sO-Y8-41Y"/>
                                                         </connections>
                                                     </containerView>
                                                 </subviews>

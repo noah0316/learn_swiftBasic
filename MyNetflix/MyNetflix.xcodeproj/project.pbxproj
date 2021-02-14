@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FB64FCE25C9B27600932EC0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB64FCD25C9B27600932EC0 /* Kingfisher */; };
+		4FBEC66525D92C8E00B11BF9 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEC66425D92C8E00B11BF9 /* UpcomingViewController.swift */; };
 		9409834F243468AA00FD1040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409834E243468AA00FD1040 /* AppDelegate.swift */; };
 		94098351243468AA00FD1040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94098350243468AA00FD1040 /* SceneDelegate.swift */; };
 		94098353243468AA00FD1040 /* AppTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94098352243468AA00FD1040 /* AppTabbarController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4FBEC66425D92C8E00B11BF9 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		9409834B243468AA00FD1040 /* MyNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9409834E243468AA00FD1040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94098350243468AA00FD1040 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				9409834E243468AA00FD1040 /* AppDelegate.swift */,
 				94098350243468AA00FD1040 /* SceneDelegate.swift */,
 				94098352243468AA00FD1040 /* AppTabbarController.swift */,
+				4FBEC66425D92C8E00B11BF9 /* UpcomingViewController.swift */,
 				940983622434692900FD1040 /* HomeViewController.swift */,
 				94DFD7542435DA88009687ED /* SearchViewController.swift */,
 				94DFD7522435CED7009687ED /* RecommendListViewController.swift */,
@@ -182,6 +185,7 @@
 				94098353243468AA00FD1040 /* AppTabbarController.swift in Sources */,
 				94DFD7552435DA88009687ED /* SearchViewController.swift in Sources */,
 				94DFD7812436F11B009687ED /* PlayerView.swift in Sources */,
+				4FBEC66525D92C8E00B11BF9 /* UpcomingViewController.swift in Sources */,
 				9409834F243468AA00FD1040 /* AppDelegate.swift in Sources */,
 				94098351243468AA00FD1040 /* SceneDelegate.swift in Sources */,
 				94DFD7532435CED7009687ED /* RecommendListViewController.swift in Sources */,
