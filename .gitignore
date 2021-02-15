@@ -128,6 +128,7 @@ AppleMusicStApp/AppleMusicStApp/Resources
 
 # MyNetflix
 MyNetflix/MyNetflix/Assets.xcassets
+MyNetflix/MyNetflix/GoogleService-Info.plist
 
 # Firebase101
 Firebase101/Firebase101/GoogleService-Info.plist
