@@ -24,7 +24,7 @@ class CameraViewController: UIViewController {
 
     let sessionQueue = DispatchQueue(label: "session Queue")
     let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera
-    ], mediaType: .video, position: .unspecified)
+        ], mediaType: .video, position: .unspecified)
 
 
     @IBOutlet weak var photoLibraryButton: UIButton!
@@ -53,11 +53,11 @@ class CameraViewController: UIViewController {
         photoLibraryButton.layer.masksToBounds = true
         photoLibraryButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         photoLibraryButton.layer.borderWidth = 1
-        
-        captureButton.layer.cornerRadius = captureButton.bounds.height/2
+
+        captureButton.layer.cornerRadius = captureButton.bounds.height / 2
         captureButton.layer.masksToBounds = true
-        
-        blurBGView.layer.cornerRadius = captureButton.bounds.height/2
+
+        blurBGView.layer.cornerRadius = captureButton.bounds.height / 2
         blurBGView.layer.masksToBounds = true
     }
 
@@ -99,21 +99,67 @@ extension CameraViewController {
         // - Add Photo Output
         // - commitConfiguration
 
+        captureSession.sessionPreset = .photo
+        captureSession.beginConfiguration()
 
+        // Add Video Input
+        do {
+            var defaultVideoDevice: AVCaptureDevice?
+            if let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back) {
+                defaultVideoDevice = dualCameraDevice
+            } else if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+                defaultVideoDevice = backCameraDevice
+            } else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
+                defaultVideoDevice = frontCameraDevice
+            }
 
+            guard let camera = defaultVideoDevice else {
+                captureSession.commitConfiguration()
+                return
+            }
 
+            let videoDeviceInput = try AVCaptureDeviceInput(device: camera)
+
+            if captureSession.canAddInput(videoDeviceInput) {
+                captureSession.addInput(videoDeviceInput)
+                self.videoDeviceInput = videoDeviceInput
+            } else {
+                captureSession.commitConfiguration()
+                return
+            }
+        } catch {
+            captureSession.commitConfiguration()
+            return
+        }
+
+        // Add photo output
+        photoOutput.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+        if captureSession.canAddOutput(photoOutput) {
+            captureSession.addOutput(photoOutput)
+        } else {
+            captureSession.commitConfiguration()
+            return
+        }
+
+        captureSession.commitConfiguration()
     }
-
-
 
     func startSession() {
         // TODO: session Start
-
+        if !captureSession.isRunning {
+            sessionQueue.async {
+                self.captureSession.startRunning()
+            }
+        }
     }
 
     func stopSession() {
         // TODO: session Stop
-
+        if captureSession.isRunning {
+            sessionQueue.async {
+                self.captureSession.stopRunning()
+            }
+        }
     }
 }
 
