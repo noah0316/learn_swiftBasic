@@ -24,8 +24,7 @@ class CameraViewController: UIViewController {
 
     let sessionQueue = DispatchQueue(label: "session Queue")
     let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera
-        ], mediaType: .video, position: .back)
-
+        ], mediaType: .video, position: .unspecified)
 
     @IBOutlet weak var photoLibraryButton: UIButton!
     @IBOutlet weak var previewView: PreviewView!
@@ -102,9 +101,12 @@ class CameraViewController: UIViewController {
                     }
 
                     self.captureSession.commitConfiguration()
+
+                    DispatchQueue.main.async {
+                        self.updateSwitchCameraIcon(position: preferredPosition)
+                    }
                 } catch let error {
-                    self.captureSession.commitConfiguration()
-                    return
+                    print(" error occured while creating device input: \(error.localizedDescription)")
                 }
             }
         }
@@ -113,8 +115,16 @@ class CameraViewController: UIViewController {
 
     func updateSwitchCameraIcon(position: AVCaptureDevice.Position) {
         // TODO: Update ICON
-
-
+        switch position {
+        case .front:
+            let image = #imageLiteral(resourceName: "ic_camera_front")
+            switchButton.setImage(image, for: .normal)
+        case .back:
+            let image = #imageLiteral(resourceName: "ic_camera_rear")
+            switchButton.setImage(image, for: .normal)
+        default:
+            break
+        }
     }
 
     @IBAction func capturePhoto(_ sender: UIButton) {
@@ -128,7 +138,6 @@ class CameraViewController: UIViewController {
         // TODO: capture한 이미지 포토라이브러리에 저장
     }
 }
-
 
 extension CameraViewController {
     // MARK: - Setup session and preview
@@ -144,7 +153,6 @@ extension CameraViewController {
         captureSession.beginConfiguration()
 
         // Add Video Input
-
         guard let camera = videoDeviceDiscoverySession.devices.first else {
             captureSession.commitConfiguration()
             return
@@ -155,6 +163,7 @@ extension CameraViewController {
 
             if captureSession.canAddInput(videoDeviceInput) {
                 captureSession.addInput(videoDeviceInput)
+                self.videoDeviceInput = videoDeviceInput
             } else {
                 captureSession.commitConfiguration()
                 return
