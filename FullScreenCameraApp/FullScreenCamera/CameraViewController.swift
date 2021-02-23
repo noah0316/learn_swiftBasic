@@ -24,7 +24,7 @@ class CameraViewController: UIViewController {
 
     let sessionQueue = DispatchQueue(label: "session Queue")
     let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera
-        ], mediaType: .video, position: .unspecified)
+        ], mediaType: .video, position: .back)
 
 
     @IBOutlet weak var photoLibraryButton: UIButton!
@@ -64,9 +64,50 @@ class CameraViewController: UIViewController {
 
     @IBAction func switchCamera(sender: Any) {
         // TODO: 카메라는 1개 이상이어야함
-
+        guard videoDeviceDiscoverySession.devices.count > 1 else {
+            return
+        }
 
         // TODO: 반대 카메라 찾아서 재설정
+        // - 반대 카메라 찾은 다음
+        // - 새로운 디바이스를 가지고 세션을 업데이트
+        // - 카메라 토글 버튼 업데이트
+        sessionQueue.async {
+            let currentVideoDevice = self.videoDeviceInput.device
+            let currentPosition = currentVideoDevice.position
+            let isFront = currentPosition == .front
+            let preferredPosition: AVCaptureDevice.Position = isFront ? .back : .front
+
+            let devices = self.videoDeviceDiscoverySession.devices
+            var newVideoDevice: AVCaptureDevice?
+
+            newVideoDevice = devices.first(where: { device in
+                return preferredPosition == device.position
+            })
+
+            // update capture session
+            if let newDevice = newVideoDevice {
+
+                do {
+                    let videoDeviceInput = try AVCaptureDeviceInput(device: newDevice)
+                    self.captureSession.beginConfiguration()
+                    self.captureSession.removeInput(self.videoDeviceInput)
+
+                    // add new device input
+                    if self.captureSession.canAddInput(videoDeviceInput) {
+                        self.captureSession.addInput(videoDeviceInput)
+                        self.videoDeviceInput = videoDeviceInput
+                    } else {
+                        self.captureSession.addInput(self.videoDeviceInput)
+                    }
+
+                    self.captureSession.commitConfiguration()
+                } catch let error {
+                    self.captureSession.commitConfiguration()
+                    return
+                }
+            }
+        }
 
     }
 
@@ -103,31 +144,23 @@ extension CameraViewController {
         captureSession.beginConfiguration()
 
         // Add Video Input
+
+        guard let camera = videoDeviceDiscoverySession.devices.first else {
+            captureSession.commitConfiguration()
+            return
+        }
+
         do {
-            var defaultVideoDevice: AVCaptureDevice?
-            if let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back) {
-                defaultVideoDevice = dualCameraDevice
-            } else if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
-                defaultVideoDevice = backCameraDevice
-            } else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
-                defaultVideoDevice = frontCameraDevice
-            }
-
-            guard let camera = defaultVideoDevice else {
-                captureSession.commitConfiguration()
-                return
-            }
-
             let videoDeviceInput = try AVCaptureDeviceInput(device: camera)
 
             if captureSession.canAddInput(videoDeviceInput) {
                 captureSession.addInput(videoDeviceInput)
-                self.videoDeviceInput = videoDeviceInput
             } else {
                 captureSession.commitConfiguration()
                 return
             }
-        } catch {
+
+        } catch let error {
             captureSession.commitConfiguration()
             return
         }
@@ -146,8 +179,8 @@ extension CameraViewController {
 
     func startSession() {
         // TODO: session Start
-        if !captureSession.isRunning {
-            sessionQueue.async {
+        sessionQueue.async {
+            if !self.captureSession.isRunning {
                 self.captureSession.startRunning()
             }
         }
@@ -155,8 +188,8 @@ extension CameraViewController {
 
     func stopSession() {
         // TODO: session Stop
-        if captureSession.isRunning {
-            sessionQueue.async {
+        sessionQueue.async {
+            if self.captureSession.isRunning {
                 self.captureSession.stopRunning()
             }
         }
