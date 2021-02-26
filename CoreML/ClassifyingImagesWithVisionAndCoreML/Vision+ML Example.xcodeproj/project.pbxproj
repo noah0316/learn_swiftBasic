@@ -13,6 +13,7 @@
 		11063F691EC0EECC0033EE6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11063F681EC0EECC0033EE6D /* Assets.xcassets */; };
 		11063F741EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11063F731EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
 		113695D81EC1151400CA6C43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113695D61EC1151400CA6C43 /* LaunchScreen.storyboard */; };
+		4F73401425E81DE5003F1C30 /* DogCatClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4F73401325E81DE5003F1C30 /* DogCatClassifier.mlmodel */; };
 		C89947DA1F4639D6005C0A19 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C89947D91F4639A8005C0A19 /* MobileNet.mlmodel */; };
 /* End PBXBuildFile section */
 
@@ -25,8 +26,9 @@
 		11063F6D1EC0EECC0033EE6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11063F731EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
 		113695D71EC1151400CA6C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A9558E70A9563BA000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		A9666960A9666AD000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		4F73401325E81DE5003F1C30 /* DogCatClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DogCatClassifier.mlmodel; sourceTree = "<group>"; };
+		A9558E70A9563BA000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		A9666960A9666AD000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C858E5CC1ECA99CC006C5CAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C89947D91F4639A8005C0A19 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = Model/MobileNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				11063F631EC0EECC0033EE6D /* ImageClassificationViewController.swift */,
 				11063F731EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift */,
 				C89947D91F4639A8005C0A19 /* MobileNet.mlmodel */,
+				4F73401325E81DE5003F1C30 /* DogCatClassifier.mlmodel */,
 				11063F651EC0EECC0033EE6D /* Main.storyboard */,
 				C82A1C951F1809F5005996F6 /* Supporting Files */,
 			);
@@ -87,7 +90,6 @@
 			children = (
 				A9666960A9666AD000000001 /* LICENSE.txt */,
 			);
-			name = LICENSE;
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
@@ -111,7 +113,6 @@
 				11063F5A1EC0EECC0033EE6D /* Sources */,
 				11063F5B1EC0EECC0033EE6D /* Frameworks */,
 				11063F5C1EC0EECC0033EE6D /* Resources */,
-				C858E5CB1ECA98CA006C5CAA,
 			);
 			buildRules = (
 			);
@@ -174,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C89947DA1F4639D6005C0A19 /* MobileNet.mlmodel in Sources */,
+				4F73401425E81DE5003F1C30 /* DogCatClassifier.mlmodel in Sources */,
 				11063F741EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				11063F641EC0EECC0033EE6D /* ImageClassificationViewController.swift in Sources */,
 				11063F621EC0EECC0033EE6D /* AppDelegate.swift in Sources */,
@@ -322,6 +324,7 @@
 				COREML_CODEGEN_LANGUAGE = Swift;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Vision+ML Example/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Vision-ML-Example${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,6 +342,7 @@
 				COREML_CODEGEN_LANGUAGE = Swift;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Vision+ML Example/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Vision-ML-Example${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
